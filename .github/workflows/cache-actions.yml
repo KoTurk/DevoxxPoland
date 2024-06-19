@@ -1,3 +1,5 @@
+on: push
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
         with:
           step: restore
       - name: Build hello-world application with Maven
-        run: mvn --batch-mode --update-snapshots verify
+        run: mvn clean install
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
